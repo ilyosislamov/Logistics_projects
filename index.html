@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logistics Project</title>
+    <title>Logistics Project Site</title>
     <style>
         body {
             margin: 0;
@@ -105,6 +105,14 @@
             background: rgba(255, 255, 255, 0.9);
         }
 
+        .assignment-box a {
+            text-decoration: none;
+            color: #000;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
         .footer {
             text-align: center;
             background: rgba(255, 255, 255, 0.7);
@@ -140,7 +148,7 @@
 <body>
     <div class="header">
         <h1>Islamov Ilyosbek</h1>
-        <h2>Logistics Project</h2>
+        <h2>Logistics Project Site</h2>
     </div>
     <div class="upload-box">
         <label for="file-upload">Drag & Drop or Click to Upload</label>
@@ -149,15 +157,25 @@
     </div>
 
     <div class="assignments">
-        <div class="assignment-box" onclick="alert('Assignment 1 Clicked!')">Assignment 1:https://excalidraw.com/#json=5ZdPEC8Tn-R4Z-LplZi7v,rs-SWq0M3yn4qq6HSsIGmQ</div>
-        <div class="assignment-box" onclick="alert('Assignment 2 Clicked!')">Assignment 2</div>
-        <div class="assignment-box" onclick="alert('Assignment 3 Clicked!')">Assignment 3</div>
-        <div class="assignment-box" onclick="alert('Assignment 4 Clicked!')">Assignment 4</div>
-        <div class="assignment-box" onclick="alert('Assignment 5 Clicked!')">Assignment 5</div>
+        <div class="assignment-box">
+            <a href="https://excalidraw.com/#json=5ZdPEC8Tn-R4Z-LplZi7v,rs-SWq0M3yn4qq6HSsIGmQ" target="_blank">Assignment 1</a>
+        </div>
+        <div class="assignment-box">
+            <a href="https://example.com/assignment2" target="_blank">Assignment 2</a>
+        </div>
+        <div class="assignment-box">
+            <a href="https://example.com/assignment3" target="_blank">Assignment 3</a>
+        </div>
+        <div class="assignment-box">
+            <a href="https://example.com/assignment4" target="_blank">Assignment 4</a>
+        </div>
+        <div class="assignment-box">
+            <a href="https://example.com/assignment5" target="_blank">Assignment 5</a>
+        </div>
     </div>
 
     <div class="footer">
-        <p>Contact: islomovilyos15@gmail.com | Phone: 01064480401</p>
+        <p>Contact: example@example.com | Phone: +123 456 7890</p>
     </div>
 
     <script>
