@@ -12,41 +12,47 @@
             background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center;
-            color: #000; /* Text color for the page */
+            color: #000;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             flex-direction: column;
+            min-height: 100vh;
+            padding: 20px;
         }
 
         .header {
             text-align: center;
             margin-bottom: 20px;
-            background: rgba(255, 255, 255, 0.7); /* Semi-transparent white background for titles */
+            background: rgba(255, 255, 255, 0.7);
             padding: 20px;
             border-radius: 10px;
+            width: 100%;
+            max-width: 600px;
         }
 
         .header h1 {
             font-size: 3rem;
             margin: 0;
-            color: #000; /* Title color */
+            color: #000;
         }
 
         .header h2 {
             font-size: 1.5rem;
             margin: 0;
-            color: #000; /* Subtitle color */
+            color: #000;
         }
 
         .upload-box {
-            background: rgba(255, 255, 255, 0.3); /* Transparent upload box */
+            background: rgba(255, 255, 255, 0.3);
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            color: #000; /* Text color inside upload box */
-            border: 2px dashed #007BFF; /* Dashed border for visibility */
+            color: #000;
+            border: 2px dashed #007BFF;
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 20px;
         }
 
         .upload-box input[type="file"] {
@@ -60,6 +66,7 @@
             color: #fff;
             border-radius: 5px;
             cursor: pointer;
+            transition: background 0.3s ease;
         }
 
         .upload-box label:hover {
@@ -70,6 +77,64 @@
             margin-top: 10px;
             font-size: 0.9rem;
         }
+
+        .assignments {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        .assignment-box {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            color: #000;
+            border: 2px solid #007BFF;
+            width: 150px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .assignment-box:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .footer {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #000;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header h2 {
+                font-size: 1.2rem;
+            }
+
+            .assignment-box {
+                width: 100px;
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -79,8 +144,20 @@
     </div>
     <div class="upload-box">
         <label for="file-upload">Drag & Drop or Click to Upload</label>
-        <input type="file" id="file-upload">
+        <input type="file" id="file-upload" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.png">
         <p>Supported formats: PDF, DOC, XLS, JPG, PNG</p>
+    </div>
+
+    <div class="assignments">
+        <div class="assignment-box" onclick="alert('Assignment 1 Clicked!')">Assignment 1</div>
+        <div class="assignment-box" onclick="alert('Assignment 2 Clicked!')">Assignment 2</div>
+        <div class="assignment-box" onclick="alert('Assignment 3 Clicked!')">Assignment 3</div>
+        <div class="assignment-box" onclick="alert('Assignment 4 Clicked!')">Assignment 4</div>
+        <div class="assignment-box" onclick="alert('Assignment 5 Clicked!')">Assignment 5</div>
+    </div>
+
+    <div class="footer">
+        <p>Contact: example@example.com | Phone: +123 456 7890</p>
     </div>
 
     <script>
@@ -89,25 +166,37 @@
 
         uploadBox.addEventListener('dragover', (e) => {
             e.preventDefault();
-            uploadBox.style.backgroundColor = 'rgba(255, 255, 255, 0.5)'; /* Slightly lighter on drag-over */
+            uploadBox.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
         });
 
         uploadBox.addEventListener('dragleave', () => {
-            uploadBox.style.backgroundColor = 'rgba(255, 255, 255, 0.3)'; /* Revert to original transparency */
+            uploadBox.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
         });
 
         uploadBox.addEventListener('drop', (e) => {
             e.preventDefault();
             uploadBox.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
-            fileInput.files = e.dataTransfer.files;
-            alert(`File "${e.dataTransfer.files[0].name}" uploaded successfully!`);
+            const files = e.dataTransfer.files;
+            if (validateFile(files[0])) {
+                fileInput.files = files;
+                alert(`File "${files[0].name}" uploaded successfully!`);
+            } else {
+                alert('Invalid file type. Please upload a supported file.');
+            }
         });
 
         fileInput.addEventListener('change', (e) => {
-            if (fileInput.files.length > 0) {
+            if (fileInput.files.length > 0 && validateFile(fileInput.files[0])) {
                 alert(`File "${fileInput.files[0].name}" uploaded successfully!`);
+            } else {
+                alert('Invalid file type. Please upload a supported file.');
             }
         });
+
+        function validateFile(file) {
+            const acceptedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'image/jpeg', 'image/png'];
+            return acceptedTypes.includes(file.type);
+        }
     </script>
 </body>
 </html>
