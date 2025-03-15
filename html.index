@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistics Project Site</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #000; /* Text color for the page */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.7); /* Semi-transparent white background for titles */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin: 0;
+            color: #000; /* Title color */
+        }
+
+        .header h2 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: #000; /* Subtitle color */
+        }
+
+        .upload-box {
+            background: rgba(255, 255, 255, 0.3); /* Transparent upload box */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: #000; /* Text color inside upload box */
+            border: 2px dashed #007BFF; /* Dashed border for visibility */
+        }
+
+        .upload-box input[type="file"] {
+            display: none;
+        }
+
+        .upload-box label {
+            display: block;
+            padding: 10px 20px;
+            background: #007BFF;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .upload-box label:hover {
+            background: #0056b3;
+        }
+
+        .upload-box p {
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Islamov Ilyosbek</h1>
+        <h2>Logistics Project Site</h2>
+    </div>
+    <div class="upload-box">
+        <label for="file-upload">Drag & Drop or Click to Upload</label>
+        <input type="file" id="file-upload">
+        <p>Supported formats: PDF, DOC, XLS, JPG, PNG</p>
+    </div>
+
+    <script>
+        const uploadBox = document.querySelector('.upload-box');
+        const fileInput = document.getElementById('file-upload');
+
+        uploadBox.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadBox.style.backgroundColor = 'rgba(255, 255, 255, 0.5)'; /* Slightly lighter on drag-over */
+        });
+
+        uploadBox.addEventListener('dragleave', () => {
+            uploadBox.style.backgroundColor = 'rgba(255, 255, 255, 0.3)'; /* Revert to original transparency */
+        });
+
+        uploadBox.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadBox.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+            fileInput.files = e.dataTransfer.files;
+            alert(`File "${e.dataTransfer.files[0].name}" uploaded successfully!`);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (fileInput.files.length > 0) {
+                alert(`File "${fileInput.files[0].name}" uploaded successfully!`);
+            }
+        });
+    </script>
+</body>
+</html>
