@@ -43,41 +43,6 @@
             color: #000;
         }
 
-        .upload-box {
-            background: rgba(255, 255, 255, 0.3);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            color: #000;
-            border: 2px dashed #007BFF;
-            width: 100%;
-            max-width: 600px;
-            margin-bottom: 20px;
-        }
-
-        .upload-box input[type="file"] {
-            display: none;
-        }
-
-        .upload-box label {
-            display: block;
-            padding: 10px 20px;
-            background: #007BFF;
-            color: #fff;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .upload-box label:hover {
-            background: #0056b3;
-        }
-
-        .upload-box p {
-            margin-top: 10px;
-            font-size: 0.9rem;
-        }
-
         .assignments {
             display: flex;
             flex-wrap: wrap;
@@ -150,11 +115,6 @@
         <h1>Islamov Ilyosbek</h1>
         <h2>Logistics Project Website</h2>
     </div>
-    <div class="upload-box">
-        <label for="file-upload">Drag & Drop or Click to Upload</label>
-        <input type="file" id="file-upload" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.png">
-        <p>Supported formats: PDF, DOC, XLS, JPG, PNG</p>
-    </div>
 
     <div class="assignments">
         <div class="assignment-box">
@@ -177,44 +137,5 @@
     <div class="footer">
         <p>Contact: islomovilyos15@gmail.com | Phone: +123 456 7890</p>
     </div>
-
-    <script>
-        const uploadBox = document.querySelector('.upload-box');
-        const fileInput = document.getElementById('file-upload');
-
-        uploadBox.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadBox.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
-        });
-
-        uploadBox.addEventListener('dragleave', () => {
-            uploadBox.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
-        });
-
-        uploadBox.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadBox.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
-            const files = e.dataTransfer.files;
-            if (validateFile(files[0])) {
-                fileInput.files = files;
-                alert(`File "${files[0].name}" uploaded successfully!`);
-            } else {
-                alert('Invalid file type. Please upload a supported file.');
-            }
-        });
-
-        fileInput.addEventListener('change', (e) => {
-            if (fileInput.files.length > 0 && validateFile(fileInput.files[0])) {
-                alert(`File "${fileInput.files[0].name}" uploaded successfully!`);
-            } else {
-                alert('Invalid file type. Please upload a supported file.');
-            }
-        });
-
-        function validateFile(file) {
-            const acceptedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'image/jpeg', 'image/png'];
-            return acceptedTypes.includes(file.type);
-        }
-    </script>
 </body>
 </html>
