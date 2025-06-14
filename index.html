@@ -125,7 +125,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px 120px;
+            padding: 0 20px 100px; /* Reduced bottom padding */
             position: relative;
             z-index: 10;
         }
@@ -238,10 +238,10 @@
             box-shadow: 0 6px 15px rgba(0,0,0,0.3);
         }
 
-        /* Footer */
+        /* Footer - Reduced size */
         .footer {
             background: rgba(30, 87, 153, 0.85);
-            padding: 25px;
+            padding: 15px 25px; /* Reduced padding */
             text-align: center;
             position: fixed;
             bottom: 0;
@@ -263,7 +263,7 @@
         .contact-info {
             display: flex;
             gap: 30px;
-            margin-bottom: 15px;
+            margin-bottom: 10px; /* Reduced margin */
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -272,29 +272,29 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 1.1rem;
+            font-size: 1rem; /* Slightly smaller font */
         }
 
         .contact-item i {
             color: var(--accent);
-            font-size: 1.3rem;
+            font-size: 1.2rem; /* Slightly smaller icons */
         }
 
         .footer p {
-            margin: 5px 0;
+            margin: 3px 0; /* Reduced margin */
             color: rgba(255, 255, 255, 0.95);
-            font-size: 1.1rem;
+            font-size: 1rem; /* Slightly smaller font */
         }
 
         .social-links {
             display: flex;
-            gap: 20px;
-            margin-top: 15px;
+            gap: 15px; /* Reduced gap */
+            margin-top: 10px; /* Reduced margin */
         }
 
         .social-links a {
             color: white;
-            font-size: 1.8rem;
+            font-size: 1.5rem; /* Slightly smaller icons */
             transition: var(--transition);
         }
 
@@ -348,7 +348,13 @@
             
             .contact-info {
                 flex-direction: column;
-                gap: 10px;
+                gap: 8px; /* Smaller gap on mobile */
+                margin-bottom: 8px;
+            }
+            
+            /* Even smaller footer on mobile */
+            .footer {
+                padding: 12px 15px;
             }
         }
 
@@ -378,7 +384,20 @@
             }
             
             .contact-item {
-                font-size: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            /* Smallest footer adjustments for mobile */
+            .footer {
+                padding: 10px 12px;
+            }
+            
+            .social-links {
+                gap: 12px;
+            }
+            
+            .social-links a {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -536,39 +555,6 @@
             
             assignmentBoxes.forEach(box => {
                 observer.observe(box);
-            });
-            
-            // Add ripple effect to assignment boxes
-            assignmentBoxes.forEach(box => {
-                box.addEventListener('click', function(e) {
-                    if (e.target.tagName !== 'A') {
-                        const link = this.querySelector('a');
-                        if (link) {
-                            link.click();
-                        }
-                    }
-                });
-                
-                box.addEventListener('mousedown', function(e) {
-                    if (e.target.tagName !== 'A') {
-                        const ripple = document.createElement('span');
-                        ripple.classList.add('ripple');
-                        this.appendChild(ripple);
-                        
-                        const rect = this.getBoundingClientRect();
-                        const size = Math.max(rect.width, rect.height);
-                        const x = e.clientX - rect.left - size/2;
-                        const y = e.clientY - rect.top - size/2;
-                        
-                        ripple.style.width = ripple.style.height = `${size}px`;
-                        ripple.style.left = `${x}px`;
-                        ripple.style.top = `${y}px`;
-                        
-                        setTimeout(() => {
-                            ripple.remove();
-                        }, 600);
-                    }
-                });
             });
         });
     </script>
