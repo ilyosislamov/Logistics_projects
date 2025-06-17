@@ -24,38 +24,37 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1686&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: var(--light);
-            line-height: 1.6;
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                url('https://english.donga.ac.kr/attach/IMAGE/PopupMgr/PopupZoneUpload/2023/9/O6KrqAxZDS98MrZL.JPG');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--light);
+    line-height: 1.6;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
 
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
-            z-index: -1;
-        }
-
-        /* Header Section */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+    z-index: -1;
+}
+        /* Header Section - Made smaller */
         .header {
             text-align: center;
-            padding: 3rem 1rem;
+            padding: 1.5rem 1rem; /* Reduced from 3rem */
             background: var(--glass);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
-            margin: 2rem auto;
+            border-radius: 15px; /* Reduced from 20px */
+            margin: 1.5rem auto; /* Reduced from 2rem */
             max-width: 800px;
             box-shadow: var(--shadow);
             border: 1px solid var(--glass-border);
@@ -70,7 +69,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 3px; /* Reduced from 4px */
             background: linear-gradient(90deg, var(--secondary), var(--accent));
             animation: borderGrow 1.5s ease-in-out;
         }
@@ -81,8 +80,8 @@
         }
 
         .header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 2.5rem; /* Reduced from 3.5rem */
+            margin-bottom: 0.3rem; /* Reduced from 0.5rem */
             color: white;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
             position: relative;
@@ -95,45 +94,46 @@
         }
 
         .header h2 {
-            font-size: 1.8rem;
+            font-size: 1.4rem; /* Reduced from 1.8rem */
             font-weight: 400;
             color: var(--light);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem; /* Reduced from 1.5rem */
             position: relative;
         }
 
         .header p {
             max-width: 600px;
             margin: 0 auto;
-            font-size: 1.2rem;
+            font-size: 1rem; /* Reduced from 1.2rem */
             color: rgba(255, 255, 255, 0.9);
-            line-height: 1.8;
+            line-height: 1.6; /* Reduced from 1.8 */
         }
 
         .university-badge {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px; /* Reduced from 10px */
             background: rgba(30, 87, 153, 0.6);
-            padding: 8px 20px;
+            padding: 6px 15px; /* Reduced from 8px 20px */
             border-radius: 30px;
-            margin-top: 1.5rem;
+            margin-top: 1rem; /* Reduced from 1.5rem */
             border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem; /* Added to reduce text size */
         }
 
         /* Assignments Grid */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px 100px; /* Reduced bottom padding */
+            padding: 0 20px 80px; /* Reduced from 100px */
             position: relative;
             z-index: 10;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+            font-size: 2rem; /* Reduced from 2.5rem */
+            margin-bottom: 2rem; /* Reduced from 3rem */
             position: relative;
             color: white;
             font-weight: 600;
@@ -143,11 +143,11 @@
         .section-title::after {
             content: "";
             position: absolute;
-            bottom: -15px;
+            bottom: -10px; /* Reduced from -15px */
             left: 50%;
             transform: translateX(-50%);
-            width: 120px;
-            height: 4px;
+            width: 100px; /* Reduced from 120px */
+            height: 3px; /* Reduced from 4px */
             background: var(--accent);
             border-radius: 2px;
         }
@@ -155,15 +155,15 @@
         .assignments {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 3rem;
+            gap: 20px; /* Reduced from 25px */
+            margin-bottom: 2rem; /* Reduced from 3rem */
         }
 
         .assignment-box {
             background: var(--glass);
             backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 25px 20px;
+            border-radius: 12px; /* Reduced from 15px */
+            padding: 20px 15px; /* Reduced from 25px 20px */
             text-align: center;
             transition: var(--transition);
             box-shadow: var(--shadow);
@@ -177,44 +177,44 @@
         }
 
         .assignment-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(-8px); /* Reduced from -10px */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Reduced from 15px 30px */
             border-color: rgba(255, 255, 255, 0.4);
             background: rgba(255, 255, 255, 0.2);
         }
 
         .assignment-number {
             position: absolute;
-            top: 15px;
-            left: 15px;
+            top: 12px; /* Reduced from 15px */
+            left: 12px; /* Reduced from 15px */
             background: var(--accent);
             color: white;
-            width: 35px;
-            height: 35px;
+            width: 30px; /* Reduced from 35px */
+            height: 30px; /* Reduced from 35px */
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 1rem;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            font-size: 0.9rem; /* Reduced from 1rem */
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2); /* Reduced from 4px 8px */
         }
 
         .assignment-box h3 {
-            font-size: 1.4rem;
-            margin: 15px 0;
+            font-size: 1.2rem; /* Reduced from 1.4rem */
+            margin: 12px 0; /* Reduced from 15px */
             color: white;
-            padding-top: 10px;
+            padding-top: 8px; /* Reduced from 10px */
             font-weight: 600;
             text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
 
         .assignment-box p {
-            font-size: 1rem;
+            font-size: 0.9rem; /* Reduced from 1rem */
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* Reduced from 20px */
             flex-grow: 1;
-            line-height: 1.6;
+            line-height: 1.5; /* Reduced from 1.6 */
         }
 
         .assignment-box a {
@@ -222,26 +222,26 @@
             background: linear-gradient(to right, var(--secondary), var(--primary));
             color: white;
             text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 8px;
+            padding: 10px 15px; /* Reduced from 12px 20px */
+            border-radius: 6px; /* Reduced from 8px */
             font-weight: 600;
             transition: var(--transition);
-            margin-top: 10px;
-            font-size: 1rem;
+            margin-top: 8px; /* Reduced from 10px */
+            font-size: 0.9rem; /* Reduced from 1rem */
             border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2); /* Reduced from 4px 10px */
         }
 
         .assignment-box a:hover {
             background: linear-gradient(to right, var(--accent), #c0392b);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            transform: translateY(-2px); /* Reduced from -3px */
+            box-shadow: 0 5px 12px rgba(0,0,0,0.3); /* Reduced from 6px 15px */
         }
 
-        /* Footer - Reduced size */
+        /* Footer - Further reduced size */
         .footer {
             background: rgba(30, 87, 153, 0.85);
-            padding: 15px 25px; /* Reduced padding */
+            padding: 10px 15px; /* Reduced from 15px 25px */
             text-align: center;
             position: fixed;
             bottom: 0;
@@ -262,8 +262,8 @@
 
         .contact-info {
             display: flex;
-            gap: 30px;
-            margin-bottom: 10px; /* Reduced margin */
+            gap: 20px; /* Reduced from 30px */
+            margin-bottom: 5px; /* Reduced from 10px */
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -271,36 +271,36 @@
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 1rem; /* Slightly smaller font */
+            gap: 8px; /* Reduced from 10px */
+            font-size: 0.9rem; /* Reduced from 1rem */
         }
 
         .contact-item i {
             color: var(--accent);
-            font-size: 1.2rem; /* Slightly smaller icons */
+            font-size: 1rem; /* Reduced from 1.2rem */
         }
 
         .footer p {
-            margin: 3px 0; /* Reduced margin */
+            margin: 2px 0; /* Reduced from 3px */
             color: rgba(255, 255, 255, 0.95);
-            font-size: 1rem; /* Slightly smaller font */
+            font-size: 0.9rem; /* Reduced from 1rem */
         }
 
         .social-links {
             display: flex;
-            gap: 15px; /* Reduced gap */
-            margin-top: 10px; /* Reduced margin */
+            gap: 12px; /* Reduced from 15px */
+            margin-top: 8px; /* Reduced from 10px */
         }
 
         .social-links a {
             color: white;
-            font-size: 1.5rem; /* Slightly smaller icons */
+            font-size: 1.3rem; /* Reduced from 1.5rem */
             transition: var(--transition);
         }
 
         .social-links a:hover {
             color: var(--accent);
-            transform: translateY(-5px);
+            transform: translateY(-3px); /* Reduced from -5px */
         }
 
         /* Animations */
@@ -326,78 +326,78 @@
         
         @media (max-width: 768px) {
             .header {
-                padding: 2rem 1rem;
-                margin: 1.5rem auto;
+                padding: 1.2rem 1rem; /* Reduced from 2rem */
+                margin: 1rem auto; /* Reduced from 1.5rem */
             }
             
             .header h1 {
-                font-size: 2.5rem;
+                font-size: 2rem; /* Reduced from 2.5rem */
             }
             
             .header h2 {
-                font-size: 1.5rem;
+                font-size: 1.2rem; /* Reduced from 1.5rem */
             }
             
             .header p {
-                font-size: 1.1rem;
+                font-size: 0.9rem; /* Reduced from 1.1rem */
             }
             
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem; /* Reduced from 2rem */
             }
             
             .contact-info {
                 flex-direction: column;
-                gap: 8px; /* Smaller gap on mobile */
-                margin-bottom: 8px;
+                gap: 6px; /* Reduced from 8px */
+                margin-bottom: 6px; /* Reduced from 8px */
             }
             
             /* Even smaller footer on mobile */
             .footer {
-                padding: 12px 15px;
+                padding: 8px 12px; /* Reduced from 12px 15px */
             }
         }
 
         @media (max-width: 480px) {
             .header h1 {
-                font-size: 2rem;
+                font-size: 1.8rem; /* Reduced from 2rem */
             }
             
             .header h2 {
-                font-size: 1.3rem;
+                font-size: 1.1rem; /* Reduced from 1.3rem */
             }
             
             .header p {
-                font-size: 1rem;
+                font-size: 0.85rem; /* Reduced from 1rem */
             }
             
             .section-title {
-                font-size: 1.8rem;
+                font-size: 1.6rem; /* Reduced from 1.8rem */
             }
             
             .assignment-box {
-                padding: 20px 15px;
+                padding: 15px 12px; /* Reduced from 20px 15px */
             }
             
             .assignment-box h3 {
-                font-size: 1.3rem;
+                font-size: 1.1rem; /* Reduced from 1.3rem */
             }
             
             .contact-item {
-                font-size: 0.9rem;
+                font-size: 0.8rem; /* Reduced from 0.9rem */
             }
             
             /* Smallest footer adjustments for mobile */
             .footer {
-                padding: 10px 12px;
+                padding: 6px 10px; /* Reduced from 10px 12px */
             }
             
             .social-links {
-                gap: 12px;
+                gap: 10px; /* Reduced from 12px */
             }
             
             .social-links a {
-                font-size: 1.3rem;
+                font-size: 1.1rem; /* Reduced from 1.3rem */
             }
         }
     </style>
@@ -499,7 +499,7 @@
             <div class="assignment-box animate-pop" style="animation-delay: 1.2s">
                 <div class="assignment-number">10</div>
                 <h3>Final Assignment</h3>
-                <p> Generalizing the Slotting Problem</p>
+                <p>Generalizing the Slotting Problem</p>
                 <a href="https://ilyosislamov.github.io/SLotting_generalize.index/" target="_blank">Slot Optimization</a>
             </div>
             
